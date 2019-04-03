@@ -1,0 +1,41 @@
+body {
+    line-height: 1.5em;
+    background-color:#ccfff5;
+}
+
+h1 {
+    margin: 10px;
+    color:#ffff00;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+button {
+    margin: 10px;
+
+}
+
+#container1 {
+    margin:10px;
+}
+
+#user-input{
+    margin-bottom: 5px;
+}
+
+#label {
+    font-size: 22px;
+    color:#ffff00;
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: black;
+}
+
+.gifDiv {
+    margin: 10px;
+    color:#ffff00;
+    font-size: 22px;
+    -webkit-text-stroke-width: .25px;
+    -webkit-text-stroke-color: black;
+    float: left;
+}
+

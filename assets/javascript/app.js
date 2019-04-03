@@ -2,19 +2,21 @@
 
 $(document).ready(function () {
 
+    //array of values for the initial buttons
     var cartoons = ["SpongeBob", "Powerpuff Girls", "Dexters Lab", "Rocket Power", "Johnny Bravo", "The Simposons", "The Jetsons", "Adventure Time"];
 
+    //function to add buttons to the DOM
     function addBtns() {
         $(".buttons").empty();
         for (var i = 0; i < cartoons.length; i++) {
-            $(".buttons").append("<button type='button' data-name='" + cartoons[i] + "'>" + cartoons[i] + "</button>");
+            $(".buttons").append(`<button type='button' class='btn btn-secondary' data-name='${cartoons[i]}'>${cartoons[i]}</button>`);
             displayGifs();
         }
     }
 
     addBtns();
 
-
+    //takes the user input and creates a button based on that input
     $("#add-show").on("click", function () {
         event.preventDefault();
         var show = $("#user-input").val().trim();
@@ -23,6 +25,7 @@ $(document).ready(function () {
         return;
     });
 
+    //function to query giphy
     function displayGifs() {
 
     $("button").on("click", function () {
@@ -33,11 +36,13 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).done(function (response) {
+            //store response.data in variable
             var showData = response.data;
             $("#gifs").empty();
+            //loops through the array response.data and assigns attributes and html tags to the GIF pulled. appends the gif to the DOM.
             for (var i = 0; i < showData.length; i++) {
-                var gifDiv = $("<div>");
-                var rating = $("<p>").text("Rating: " + showData[i].rating);
+                var gifDiv = $("<div class='gifDiv'>");
+                var rating = $("<p>").text(`Rating: ${showData[i].rating}`);
                 var showGif = $("<img>");
                 var sdArray = showData[i].images;
 
@@ -55,6 +60,7 @@ $(document).ready(function () {
 
 }
 
+    //function contains logic to start and stop the gifs when clicked
 	function moveStop(){
 		var state = $(this).attr("data-state");
 		var animateImage = $(this).attr("data-animate");
